@@ -35,6 +35,6 @@ public class Direction : MonoBehaviour, IDirectionProvider
     {
         ComputeMousePositionIntoWorld();
         ComputeDirection();
-        DebugDirection();
+        //DebugDirection();
     }
 }

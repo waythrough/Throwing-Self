@@ -27,14 +27,9 @@ public class Direction : MonoBehaviour, IDirectionProvider
         mousePositionIntoWorld = Camera.main.ScreenToWorldPoint(Input.mousePosition);
     }
 
-    private void DebugDirection () {
-        print(direction);
-    }
-
     private void Update()
     {
         ComputeMousePositionIntoWorld();
         ComputeDirection();
-        //DebugDirection();
     }
 }

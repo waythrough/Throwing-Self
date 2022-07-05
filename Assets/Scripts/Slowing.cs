@@ -3,8 +3,6 @@ using System;
 
 public class Slowing : MonoBehaviour
 {
-    public static event Action OnEnter;
-
     [SerializeField] new private Rigidbody2D rigidbody2D;
     [SerializeField] private float slowValue;
 
@@ -32,24 +30,21 @@ public class Slowing : MonoBehaviour
         rigidbody2D.gravityScale *= slowValue;
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
+    private void Awake()
     {
-        OnEnter?.Invoke();
+        Point.OnPlayerEnter += RememberLastVelocity;
+        Point.OnPlayerEnter += RememberLastGravityScale;
+        Point.OnPlayerEnter += ToDownSpeed;
 
-        RememberLastVelocity();
-        RememberLastGravityScale();
-        ToDownSpeed();
-    }
+        Point.OnPlayerExit += () => rigidbody2D.gravityScale = lastGravityScale;
 
-    private void OnTriggerExit2D(Collider2D other)
-    {
-        rigidbody2D.gravityScale = lastGravityScale;
-
-        if (HadChangesOnDirection())
+        Point.OnPlayerExit += () =>
         {
-            return;
-        }
-
-        rigidbody2D.velocity = lastVelocity;
+            if (!HadChangesOnDirection())
+            {
+                rigidbody2D.velocity = lastVelocity;
+            }
+        };
     }
+
 }

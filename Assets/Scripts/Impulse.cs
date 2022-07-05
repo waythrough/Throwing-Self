@@ -5,7 +5,7 @@ public class Impulse : MonoBehaviour
     [SerializeField] new private Rigidbody2D rigidbody2D;
     [SerializeField] private float throwingForce;
 
-    private bool canImpulse = false;
+    private bool canImpulse = true;
 
     private IDirectionProvider directionProvider;
 
@@ -16,11 +16,6 @@ public class Impulse : MonoBehaviour
 
     private bool MustThrowSelf()
     {
-        if (canImpulse == false)
-        {
-            return false;
-        }
-
         return Input.GetMouseButtonDown(0);
     }
 
@@ -35,26 +30,37 @@ public class Impulse : MonoBehaviour
         canImpulse = false;
     }
 
+    private void StartSimulation () {
+        rigidbody2D.simulated = true;
+    }
+
+    private void StopSimulation () {
+        rigidbody2D.simulated = false;
+    }
+
     private void Awake()
     {
         TryGetComponent(out directionProvider);
-        Slowing.OnEnter += ReloadImpulse;
+
+        Point.OnPlayerEnter += ReloadImpulse;
+        Defeat.OnDefeat += StopSimulation;
     }
 
     private void Update()
     {
         if (MustThrowSelf())
         {
+            if(canImpulse == false) {
+                return;
+            }
+
+            if(rigidbody2D.simulated == false) {
+                StartSimulation();
+            }
+
+            
             ResetForces();
             Throw();
         }
-    }
-
-    private void OnCollisionEnter2D(Collision2D other)
-    {
-        if(!other.collider.CompareTag("Ground")) {
-            return;
-        }
-        ReloadImpulse();
     }
 }

@@ -8,6 +8,12 @@ namespace Throwing_Self.Assets.New_Scripts
         [SerializeField] private float force;
 
         private bool isOnJumpArea;
+        Animator animator;
+
+        private void Start()
+        {
+            animator = GetComponent<Animator>();
+        }
 
         private Vector2 ComputeDirection()
         {
@@ -22,6 +28,7 @@ namespace Throwing_Self.Assets.New_Scripts
 
             if (Input.GetMouseButtonDown(0) && isOnJumpArea == true)
             {
+                animator.SetBool("Jumping", true);
                 body.isKinematic = false;
                 body.velocity = Vector2.zero;
                 body.AddForce(ComputeDirection() * force, ForceMode2D.Impulse);

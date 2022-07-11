@@ -28,11 +28,12 @@ namespace Throwing_Self.Assets.New_Scripts
 
             if (Input.GetMouseButtonDown(0) && isOnJumpArea == true)
             {
-                animator.SetBool("Jumping", true);
                 body.isKinematic = false;
                 body.velocity = Vector2.zero;
                 body.AddForce(ComputeDirection() * force, ForceMode2D.Impulse);
+                animator.SetBool("Jumping", true);
             }
+            Rotation();
         }
 
         private void OnTriggerEnter2D(Collider2D other)
@@ -43,7 +44,7 @@ namespace Throwing_Self.Assets.New_Scripts
 
             if(other.CompareTag("Point")) {
                 isOnJumpArea = true;
-                
+                animator.SetBool("Jumping", false);
             }
 
             if(other.CompareTag("Harmful")) {
@@ -58,6 +59,14 @@ namespace Throwing_Self.Assets.New_Scripts
         {
             isOnJumpArea = false;
             body.gravityScale = body.gravityScale * 3;
+        }
+
+        private void Rotation()
+        {
+            if(Input.GetButtonDown("Jump"))
+            {
+                transform.localScale = new Vector2(-transform.localScale.x, transform.localScale.y);
+            }
         }
     }
 }

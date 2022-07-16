@@ -20,6 +20,10 @@ namespace Throwing_Self.Assets.New_Scripts
 
         private void FixedUpdate()
         {
+            if(GameManager.isDefeat()) {
+
+            }
+
             var position = transform.position;
             var offset = ComputeOffset();
 

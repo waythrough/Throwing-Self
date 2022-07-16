@@ -8,6 +8,14 @@ namespace Throwing_Self.Assets.New_Scripts
         private static bool victory;
         private static bool defeat;
 
+        public static void SetVictory (bool isVictory) {
+            victory = isVictory;
+        }
+
+        public static void SetDefeat (bool isDefeat) {
+            defeat = isDefeat;
+        }
+
         public static bool isVictory () {
             return victory;
         }

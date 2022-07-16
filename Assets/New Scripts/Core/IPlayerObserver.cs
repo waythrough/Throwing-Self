@@ -16,6 +16,7 @@ namespace Throwing_Self.Assets.New_Scripts
         {
             Debug.Log("Victory");
             OnVictory?.Invoke();
+            //GameManager.SetVictory(true);
         }
     }
 
@@ -26,6 +27,7 @@ namespace Throwing_Self.Assets.New_Scripts
         {
             Debug.Log("Defeat");
             OnDefeat?.Invoke();
+            //GameManager.SetDefeat(true);
         }
     }
 }

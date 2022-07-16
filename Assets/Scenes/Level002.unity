@@ -252,36 +252,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 535621176834819950, guid: 2b0cfdf623372ea4090ba74b407820c2, type: 3}
   m_PrefabInstance: {fileID: 249533889}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1388685155 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6088066644703001416, guid: a081dc81159e4a042b91ebfdc4bdd0c3, type: 3}
-  m_PrefabInstance: {fileID: 2054112049}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1388685156 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6088066644703001417, guid: a081dc81159e4a042b91ebfdc4bdd0c3, type: 3}
   m_PrefabInstance: {fileID: 2054112049}
   m_PrefabAsset: {fileID: 0}
---- !u!95 &1388685157
-Animator:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1388685155}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: de6f2294e6c618d4fbfb0183cb006218, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1462664649
 GameObject:
   m_ObjectHideFlags: 0
@@ -5723,10 +5698,6 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6088066644703001417, guid: a081dc81159e4a042b91ebfdc4bdd0c3, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6088066644703001417, guid: a081dc81159e4a042b91ebfdc4bdd0c3, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -5764,10 +5735,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6088066644703001417, guid: a081dc81159e4a042b91ebfdc4bdd0c3, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6088066644703001417, guid: a081dc81159e4a042b91ebfdc4bdd0c3, type: 3}
-      propertyPath: m_ConstrainProportionsScale
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6088066644703001429, guid: a081dc81159e4a042b91ebfdc4bdd0c3, type: 3}

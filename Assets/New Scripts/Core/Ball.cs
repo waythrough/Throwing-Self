@@ -28,26 +28,33 @@ namespace Throwing_Self.Assets.New_Scripts
 
             if (Input.GetMouseButtonDown(0) && isOnJumpArea == true)
             {
+                body.angularVelocity = 0;
                 body.isKinematic = false;
                 body.velocity = Vector2.zero;
                 body.AddForce(ComputeDirection() * force, ForceMode2D.Impulse);
+                body.AddTorque(Mathf.Sign(-ComputeDirection().x) * force, ForceMode2D.Impulse);
                 animator.SetBool("Jumping", true);
+                //transform.localScale = new Vector2(-transform.localScale.x, transform.localScale.y);
             }
             Rotation();
         }
 
         private void OnTriggerEnter2D(Collider2D other)
         {
-            if(other.CompareTag("Goal")) {
+            if (other.CompareTag("Goal"))
+            {
                 GameManager.Notify(new Victory());
-            } 
+            }
 
-            if(other.CompareTag("Point")) {
+            if (other.CompareTag("Point"))
+            {
                 isOnJumpArea = true;
+                body.angularVelocity = 0;
                 animator.SetBool("Jumping", false);
             }
 
-            if(other.CompareTag("Harmful")) {
+            if (other.CompareTag("Harmful"))
+            {
                 GameManager.Notify(new Defeat());
             }
 
@@ -63,9 +70,9 @@ namespace Throwing_Self.Assets.New_Scripts
 
         private void Rotation()
         {
-            if(Input.GetButtonDown("Jump"))
+            if (Input.GetButtonDown("Jump"))
             {
-                transform.localScale = new Vector2(-transform.localScale.x, transform.localScale.y);
+                print("salto");
             }
         }
     }

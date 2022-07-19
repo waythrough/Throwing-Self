@@ -10,5 +10,10 @@ namespace Throwing_Self.Assets.New_Scripts
         public void Load () {
             SceneManager.LoadSceneAsync(buildIndex, LoadSceneMode.Single);
         }
+
+        public void Leave() {
+            Application.Quit();
+            Debug.Log("Salir");
+        }
     }
 }

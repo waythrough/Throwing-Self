@@ -5928,11 +5928,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6088066644703001429, guid: a081dc81159e4a042b91ebfdc4bdd0c3, type: 3}
       propertyPath: m_Size.x
-      value: 0.2
+      value: 1.25
       objectReference: {fileID: 0}
     - target: {fileID: 6088066644703001429, guid: a081dc81159e4a042b91ebfdc4bdd0c3, type: 3}
       propertyPath: m_Size.y
-      value: 0.2
+      value: 1.25
       objectReference: {fileID: 0}
     - target: {fileID: 6088066644703001429, guid: a081dc81159e4a042b91ebfdc4bdd0c3, type: 3}
       propertyPath: m_Sprite

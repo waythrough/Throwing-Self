@@ -51,21 +51,24 @@ namespace Throwing_Self.Assets.New_Scripts
                 isOnJumpArea = true;
                 body.angularVelocity = 0;
                 animator.SetBool("Jumping", false);
+
+                body.velocity = body.velocity / 3;
+                body.gravityScale = body.gravityScale / 3;
             }
 
             if (other.CompareTag("Harmful"))
             {
                 GameManager.Notify(new Defeat());
             }
-
-            body.velocity = body.velocity / 3;
-            body.gravityScale = body.gravityScale / 3;
         }
 
         private void OnTriggerExit2D(Collider2D other)
         {
-            isOnJumpArea = false;
-            body.gravityScale = body.gravityScale * 3;
+            if(other.CompareTag("Point")) 
+            {
+                isOnJumpArea = false;
+                body.gravityScale = body.gravityScale * 3;
+            }
         }
 
         private void Rotation()

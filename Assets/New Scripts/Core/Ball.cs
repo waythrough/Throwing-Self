@@ -9,9 +9,11 @@ namespace Throwing_Self.Assets.New_Scripts
 
         private bool isOnJumpArea;
         Animator animator;
+        AudioPlay audioPlay;
 
         private void Start()
         {
+            audioPlay = FindObjectOfType<AudioPlay>();
             animator = GetComponent<Animator>();
         }
 

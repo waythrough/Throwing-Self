@@ -20,8 +20,8 @@ public class CheckAudio : MonoBehaviour
         {
             if (isTrigger)
             {
-                audioPlay.PlayAudio(position, volume);
-                isTrigger = false;
+                //audioPlay.PlayAudio(position, volume);
+                //isTrigger = false;
             }
         }
     }
